@@ -6,7 +6,7 @@
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:09:44 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/07 15:54:05 by okruhlia         ###   ########.fr       */
+/*   Updated: 2025/07/09 10:57:51 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 char	*ft_strcat(char *dest, char *src)
 {
-	int	i;
-	int	j;
+	int	dest_id;
+	int	src_id;
 
-	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
+	dest_id = 0;
+	src_id = 0;
+	while (dest[dest_id] != '\0')
 	{
-		i++;
+		dest_id++;
 	}
-	while (src[j] != '\0')
+	while (src[src_id] != '\0')
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		dest[dest_id] = src[src_id];
+		dest_id++;
+		src_id++;
 	}
 	return (dest);
 }
