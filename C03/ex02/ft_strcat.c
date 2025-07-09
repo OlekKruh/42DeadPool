@@ -6,11 +6,9 @@
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:09:44 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/09 10:57:51 by okruhlia         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:24:44 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 char	*ft_strcat(char *dest, char *src)
 {
@@ -29,5 +27,6 @@ char	*ft_strcat(char *dest, char *src)
 		dest_id++;
 		src_id++;
 	}
+	dest[dest_id] = '\0';
 	return (dest);
 }
