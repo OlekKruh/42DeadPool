@@ -1,0 +1,7 @@
+*.json
+*.exe
+*.log
+*.txt
+*.tmp
+
+main.c

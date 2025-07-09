@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdio.h>
 
 char	*ft_strstr(const char *str, const char *to_find)
 {
@@ -40,10 +41,10 @@ char	*ft_strstr(const char *str, const char *to_find)
 	return (0);
 }
 
-int main()
+int	main()
 {
-	char s1[] = "GeeksfoforGeeks";
-    char s2[] = "for";
+	char	s1[] = "GeeksfoforGeeks";
+    char	s2[] = "for";
 	printf("%s\n", ft_strstr(s1, s2));
 	printf("%s\n", strstr(s1, s2));
 }
