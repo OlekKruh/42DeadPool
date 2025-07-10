@@ -1,5 +1,9 @@
+*
+!/**/
+!*.*
 *.json
 *.exe
+*.out
 *.log
 *.txt
 *.tmp
