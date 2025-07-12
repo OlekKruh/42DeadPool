@@ -6,42 +6,36 @@
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 14:27:36 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/08 15:13:52 by okruhlia         ###   ########.fr       */
+/*   Updated: 2025/07/12 11:07:30 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c);
-
 void	ft_putnbr(int nb)
 {
-	int			i;
-	long int	n;
-	char		buf[20];
+	long int	duble;
+	char		arr[20];
+	int			id;
 
-	n = nb;
-	i = 0;
+	id = 0;
+	duble = nb;
+	if (duble < 0)
+		duble *= -1;
+	else if (duble == 0)
+	{
+		write(1, "0", 1);
+		return ;
+	}
+	while (duble > 0)
+	{
+		arr[id++] = (duble % 10) + '0';
+		duble /= 10;
+	}
 	if (nb < 0)
-	{
-		nb = -nb;
-	}
-	if (nb == 0)
-		ft_putchar('0');
-	while (nb > 0)
-	{
-		buf[i++] = (nb % 10) + '0';
-		nb /= 10;
-	}
-	if (n < 0)
-		buf[i++] = '-';
-	while (i--)
-		ft_putchar(buf[i]);
-	if (nb == -2147483648)
-		write(1, "2147483648", 11);
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
+		arr[id] = '-';
+	else
+		id--;
+	while (id >= 0)
+		write(1, &arr[id--], 1);
 }

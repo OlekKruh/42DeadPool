@@ -6,7 +6,7 @@
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 18:03:05 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/11 11:31:54 by okruhlia         ###   ########.fr       */
+/*   Updated: 2025/07/12 10:28:27 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	base_verifi(char *base)
 	if (!base[0])
 		return (0);
 	if (is_duble(base) == 1)
-		return (0);
+		return (1);
 	while (base[id] != '\0')
 	{
 		if (!(('a' <= base[id] && base[id] <= 'z')

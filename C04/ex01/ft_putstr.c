@@ -6,7 +6,7 @@
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 14:22:23 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/08 14:24:23 by okruhlia         ###   ########.fr       */
+/*   Updated: 2025/07/12 10:30:01 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,5 @@ void	ft_putstr(char *str)
 
 	i = 0;
 	while (str[i] != '\0')
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
+		write(1, &str[i++], 1);
 }
