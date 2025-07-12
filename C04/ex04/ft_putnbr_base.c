@@ -6,20 +6,19 @@
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 18:03:05 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/12 10:28:27 by okruhlia         ###   ########.fr       */
+/*   Updated: 2025/07/12 12:55:02 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	base_verifi(char *base);
-int	is_duble(char *base);
+int		base_verifi(char *base);
+int		is_duble(char *base);
+void	put_nb(long int sign, char *base, int devisor, int nbr);
 
 void	ft_putnbr_base(int nbr, char *base)
 {
 	int			devisor;
-	char		cash[100];
-	int			id;
 	long int	sign;
 
 	devisor = base_verifi(base);
@@ -29,20 +28,30 @@ void	ft_putnbr_base(int nbr, char *base)
 		write(1, &base[0], 1);
 	else
 	{
-		id = 0;
 		sign = nbr;
-		if (sign < 0)
-			sign *= -1;
-		while (sign > 0)
-		{
-			cash[id++] = base[(sign % devisor)];
-			sign /= devisor;
-		}
-		if (nbr < 0)
-			cash[id] = '-';
-		while (id >= 0)
-			write(1, &cash[id--], 1);
+		put_nb(sign, base, devisor, nbr);		
 	}
+}
+
+void	put_nb(long int sign, char *base, int devisor, int nbr)
+{
+	int		id;
+	char	cash[100];
+
+	id = 0;
+	if (sign < 0)
+		sign *= -1;
+	while (sign > 0)
+	{
+		cash[id++] = base[(sign % devisor)];
+		sign /= devisor;
+	}
+	if (nbr < 0)
+		cash[id] = '-';
+	else
+		id--;
+	while (id >= 0)
+		write(1, &cash[id--], 1);
 }
 
 int	base_verifi(char *base)
@@ -51,7 +60,7 @@ int	base_verifi(char *base)
 
 	id = 0;
 	if (!base[0])
-		return (0);
+		return (1);
 	if (is_duble(base) == 1)
 		return (1);
 	while (base[id] != '\0')
@@ -59,7 +68,7 @@ int	base_verifi(char *base)
 		if (!(('a' <= base[id] && base[id] <= 'z')
 				|| ('A' <= base[id] && base[id] <= 'Z')
 				|| ('0' <= base[id] && base[id] <= '9')))
-			return (0);
+			return (1);
 		id++;
 	}
 	return (id);
