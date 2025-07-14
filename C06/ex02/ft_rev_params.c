@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/13 14:42:40 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/14 14:24:59 by okruhlia         ###   ########.fr       */
+/*   Created: 2025/07/14 12:51:27 by okruhlia          #+#    #+#             */
+/*   Updated: 2025/07/14 12:55:44 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int nb)
-{
-	int	i;
+#include <unistd.h>
 
-	i = 0;
-	if (nb < 0 || nb == 0 || nb == 1)
-		return (0);
-	if (nb == 2 || nb == 3)
-		return (1);
-	while (i != nb)
+int	main(int argc, char *argv[])
+{
+	int	char_id;
+
+	while (--argc != 0)
 	{
-		if ((nb % 2 == 0) || (nb % 3 == 0) || (nb % 5 == 0) || (nb % 7 == 0))
-		{
-			return (0);
-		}
-		i++;
+		char_id = 0;
+		while (argv[argc][char_id] != '\0')
+			write(1, &argv[argc][char_id++], 1);
+		write(1, "\n", 1);
 	}
-	return (1);
 }
