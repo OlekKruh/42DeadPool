@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/08 14:27:36 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/12 11:07:30 by okruhlia         ###   ########.fr       */
+/*   Created: 2025/07/13 16:07:55 by okruhlia          #+#    #+#             */
+/*   Updated: 2025/07/15 15:38:47 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+int	ft_is_prime(int nb);
 
-void	ft_putnbr(int nb)
+int	ft_find_next_prime(int nb)
 {
-	long int	duble;
-	char		arr[20];
-	int			id;
+	nb++;
+	while (!ft_is_prime(nb))
+		nb++;
+	return (nb);
+}
 
-	id = 0;
-	duble = nb;
-	if (duble < 0)
-		duble *= -1;
-	else if (duble == 0)
+int	ft_is_prime(int nb)
+{
+	int	i;
+
+	i = 2;
+	if (nb <= 0 || nb == 1)
+		return (0);
+
+	while ((i * i) <= nb)
 	{
-		write(1, "0", 1);
-		return ;
+		if (nb % i == 0)
+			return (0);
+		i++;
 	}
-	while (duble > 0)
-	{
-		arr[id++] = (duble % 10) + '0';
-		duble /= 10;
-	}
-	if (nb < 0)
-		arr[id] = '-';
-	else
-		id--;
-	while (id >= 0)
-		write(1, &arr[id--], 1);
+	return (1);
 }

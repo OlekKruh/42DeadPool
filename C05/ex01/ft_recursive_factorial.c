@@ -1,41 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/08 14:27:36 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/12 11:07:30 by okruhlia         ###   ########.fr       */
+/*   Created: 2025/07/11 12:16:54 by okruhlia          #+#    #+#             */
+/*   Updated: 2025/07/12 16:26:14 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putnbr(int nb)
+int	ft_recursive_factorial(int nb)
 {
-	long int	duble;
-	char		arr[20];
-	int			id;
-
-	id = 0;
-	duble = nb;
-	if (duble < 0)
-		duble *= -1;
-	else if (duble == 0)
-	{
-		write(1, "0", 1);
-		return ;
-	}
-	while (duble > 0)
-	{
-		arr[id++] = (duble % 10) + '0';
-		duble /= 10;
-	}
 	if (nb < 0)
-		arr[id] = '-';
+		return (0);
+	else if (nb == 0)
+		return (1);
 	else
-		id--;
-	while (id >= 0)
-		write(1, &arr[id--], 1);
+		return (nb * ft_recursive_factorial((nb - 1)));
 }

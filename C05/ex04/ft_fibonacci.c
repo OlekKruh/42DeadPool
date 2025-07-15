@@ -1,41 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/08 14:27:36 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/12 11:07:30 by okruhlia         ###   ########.fr       */
+/*   Created: 2025/07/13 13:26:17 by okruhlia          #+#    #+#             */
+/*   Updated: 2025/07/13 14:00:47 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putnbr(int nb)
+int	ft_fibonacci(int index)
 {
-	long int	duble;
-	char		arr[20];
-	int			id;
-
-	id = 0;
-	duble = nb;
-	if (duble < 0)
-		duble *= -1;
-	else if (duble == 0)
-	{
-		write(1, "0", 1);
-		return ;
-	}
-	while (duble > 0)
-	{
-		arr[id++] = (duble % 10) + '0';
-		duble /= 10;
-	}
-	if (nb < 0)
-		arr[id] = '-';
+	if (index < 0)
+		return (-1);
+	else if (index == 0)
+		return (0);
+	else if (index == 1 || index == 2)
+		return (1);
 	else
-		id--;
-	while (id >= 0)
-		write(1, &arr[id--], 1);
+		return ((ft_fibonacci((index - 1)) + ft_fibonacci((index - 2))));
 }

@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/08 14:27:36 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/12 11:07:30 by okruhlia         ###   ########.fr       */
+/*   Created: 2025/07/13 14:42:40 by okruhlia          #+#    #+#             */
+/*   Updated: 2025/07/15 14:55:12 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putnbr(int nb)
+int	ft_is_prime(int nb)
 {
-	long int	duble;
-	char		arr[20];
-	int			id;
+	int	i;
 
-	id = 0;
-	duble = nb;
-	if (duble < 0)
-		duble *= -1;
-	else if (duble == 0)
+	i = 2;
+	if (nb <= 0 || nb == 1)
+		return (0);
+
+	while ((i * i) <= nb)
 	{
-		write(1, "0", 1);
-		return ;
+		if (nb % i == 0)
+			return (0);
+		i++;
 	}
-	while (duble > 0)
-	{
-		arr[id++] = (duble % 10) + '0';
-		duble /= 10;
-	}
-	if (nb < 0)
-		arr[id] = '-';
-	else
-		id--;
-	while (id >= 0)
-		write(1, &arr[id--], 1);
+	return (1);
 }

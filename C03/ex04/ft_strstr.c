@@ -6,7 +6,7 @@
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:55:56 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/09 19:38:42 by okruhlia         ###   ########.fr       */
+/*   Updated: 2025/07/10 10:01:20 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,10 @@ char	*ft_strstr(const char *str, const char *to_find)
 			}
 			if (to_find[find_id] == '\0')
 			{
-				return ((char *)(str + str_id));
+				return (&str[str_id]);
 			}
 		}
 		str_id++;
 	}
 	return (0);
-}
-
-int	main()
-{
-	char	s1[] = "GeeksfoforGeeks";
-    char	s2[] = "for";
-	printf("%s\n", ft_strstr(s1, s2));
-	printf("%s\n", strstr(s1, s2));
 }

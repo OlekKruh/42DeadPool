@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: okruhlia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/08 14:22:23 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/12 10:30:01 by okruhlia         ###   ########.fr       */
+/*   Created: 2025/06/28 13:41:21 by okruhlia          #+#    #+#             */
+/*   Updated: 2025/06/29 09:55:06 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+void	put_char(char c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		write(1, &str[i++], 1);
+	write(1, &c, 1);
 }

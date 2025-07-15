@@ -1,41 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/08 14:27:36 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/12 11:07:30 by okruhlia         ###   ########.fr       */
+/*   Created: 2025/07/14 15:20:18 by okruhlia          #+#    #+#             */
+/*   Updated: 2025/07/15 09:23:12 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putnbr(int nb)
+int	ft_strlen(char *src);
+
+char	*ft_strdup(char *src)
 {
-	long int	duble;
-	char		arr[20];
-	int			id;
+	char	*new_str;
+	int		id;
 
 	id = 0;
-	duble = nb;
-	if (duble < 0)
-		duble *= -1;
-	else if (duble == 0)
-	{
-		write(1, "0", 1);
-		return ;
-	}
-	while (duble > 0)
-	{
-		arr[id++] = (duble % 10) + '0';
-		duble /= 10;
-	}
-	if (nb < 0)
-		arr[id] = '-';
+	new_str = (char *)malloc(ft_strlen(src) + 1);
+	if (new_str == NULL)
+		return (NULL);
 	else
-		id--;
-	while (id >= 0)
-		write(1, &arr[id--], 1);
+	{
+		while (src[id] != '\0')
+		{
+			new_str[id] = src[id];
+			id++;
+		}
+	}
+	new_str[id] = '\0';
+	return (new_str);
+}
+
+int	ft_strlen(char *src)
+{
+	int	i;
+
+	i = 0;
+	while (src[i] != '\0')
+		i++;
+	return (i);
 }

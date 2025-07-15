@@ -1,41 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/08 14:27:36 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/12 11:07:30 by okruhlia         ###   ########.fr       */
+/*   Created: 2025/07/13 11:36:09 by okruhlia          #+#    #+#             */
+/*   Updated: 2025/07/13 13:23:34 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putnbr(int nb)
+int	ft_iterative_power(int nb, int power)
 {
-	long int	duble;
-	char		arr[20];
-	int			id;
+	int	i;
 
-	id = 0;
-	duble = nb;
-	if (duble < 0)
-		duble *= -1;
-	else if (duble == 0)
+	i = 1;
+	if (power < 0)
+		return (0);
+	else if (power == 0)
+		return (1);
+	while (power > 0)
 	{
-		write(1, "0", 1);
-		return ;
+		i *= nb;
+		power--;
 	}
-	while (duble > 0)
-	{
-		arr[id++] = (duble % 10) + '0';
-		duble /= 10;
-	}
-	if (nb < 0)
-		arr[id] = '-';
-	else
-		id--;
-	while (id >= 0)
-		write(1, &arr[id--], 1);
+	return (i);
 }
