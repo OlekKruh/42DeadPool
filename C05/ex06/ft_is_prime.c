@@ -6,25 +6,24 @@
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 14:42:40 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/14 14:24:59 by okruhlia         ###   ########.fr       */
+/*   Updated: 2025/07/15 14:55:12 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 int	ft_is_prime(int nb)
 {
 	int	i;
 
-	i = 0;
-	if (nb < 0 || nb == 0 || nb == 1)
+	i = 2;
+	if (nb <= 0 || nb == 1)
 		return (0);
-	if (nb == 2 || nb == 3)
-		return (1);
-	while (i != nb)
+
+	while ((i * i) <= nb)
 	{
-		if ((nb % 2 == 0) || (nb % 3 == 0) || (nb % 5 == 0) || (nb % 7 == 0))
-		{
+		if (nb % i == 0)
 			return (0);
-		}
 		i++;
 	}
 	return (1);
