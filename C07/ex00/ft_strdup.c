@@ -6,7 +6,7 @@
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 15:20:18 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/14 15:40:35 by okruhlia         ###   ########.fr       */
+/*   Updated: 2025/07/15 09:23:12 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strdup(char *src)
 	id = 0;
 	new_str = (char *)malloc(ft_strlen(src) + 1);
 	if (new_str == NULL)
-		return (0);
+		return (NULL);
 	else
 	{
 		while (src[id] != '\0')
