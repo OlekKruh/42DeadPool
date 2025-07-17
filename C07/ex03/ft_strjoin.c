@@ -6,7 +6,7 @@
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:25:50 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/17 13:32:44 by okruhlia         ###   ########.fr       */
+/*   Updated: 2025/07/17 16:29:47 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,15 @@ void	joining(char **strs, char *sep, char *strjoin, int *size)
 			strjoin[jstr_id++] = '\0';
 		str_id++;
 	}
+}
+
+int	main(void)
+{
+	char	*strs[] = {"Hello", "", "world"};
+	int		size = 3;
+	char	*sep = "_/";
+
+	printf("%s\n", ft_strjoin(size, strs, sep));
+	// printf("%d\n", ft_seplen(sep));
+	return (0);
 }
