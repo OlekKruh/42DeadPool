@@ -6,7 +6,7 @@
 /*   By: okruhlia <okruhlia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 14:42:40 by okruhlia          #+#    #+#             */
-/*   Updated: 2025/07/16 09:28:29 by okruhlia         ###   ########.fr       */
+/*   Updated: 2025/07/17 13:18:33 by okruhlia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	ft_is_prime(int nb)
 	i = 2;
 	if (nb <= 1)
 		return (0);
+
 	while ((i * i) <= nb)
 	{
 		if (nb % i == 0)

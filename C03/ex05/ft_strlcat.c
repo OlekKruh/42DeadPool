@@ -18,11 +18,13 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	dest_len;
 	unsigned int	src_len;
-	int				id;
+	unsigned int	id;
 
 	id = 0;
 	dest_len = ft_strlen(dest);
 	src_len = ft_strlen(src);
+	if (size == 0)
+		return src_len;
 	if (dest_len >= size)
 		return (size + src_len);
 	while (src[id] && (dest_len + id) < size - 1)
@@ -42,4 +44,12 @@ unsigned int	ft_strlen(char *dest)
 	while (dest[i] != '\0')
 		i++;
 	return (i);
+}
+
+int	main(void)
+{
+	char	dest[5];
+	char	src[5];
+	unsigned int size;
+
 }
